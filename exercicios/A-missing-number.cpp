@@ -17,18 +17,17 @@ typedef tuple<ll, ll, ll> tll;
 
 int main (){
     ios::sync_with_stdio(false);
-    int N;
-    ll missing_sum;
+    ll N;
+    ll missing_sum = 0;
     cin >> N;
 
     rep(i,1,N-1){
-        int x;
+        ll x;
         cin >> x;
         missing_sum += x;
     }
 
-
-    int missing_number = (N*(1+N))/2 - missing_sum;
+    ll missing_number = (N*(1+N))/2 - missing_sum;
     cout << missing_number;
 
     return 0;

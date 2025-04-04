@@ -9,18 +9,27 @@ using namespace std;
 #define rep(i,a,b) for(int i = a; i <= b; i++)
 
 typedef vector<int> vi;
-typedef pair<int,int> pi;
 typedef set<int> si;
+typedef pair<int,int> pi;
 typedef long long ll;
 typedef vector<ll> vll;
 typedef pair<ll, ll> pll;
-typedef set<ll> sll;
+typedef tuple<ll, ll, ll> tll;
 
 int main (){
     ios::sync_with_stdio(false);
-    cin.tie(NULL);
+    int t;
+    cin >> t;
 
-
+    while (t--){
+        ll x,y;
+        cin >> x >> y;
+        if (x-y > 1){
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
 
 
     return 0;
