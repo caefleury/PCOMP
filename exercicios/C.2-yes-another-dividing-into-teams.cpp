@@ -6,7 +6,6 @@ using namespace std;
 #define pb push_back
 #define size(z) (long long)z.size()
 #define all(x) x.begin(), x.end()
-#define rep(i,a,b) for(int i = a; i <= b; i++)
 
 typedef vector<int> vi;
 typedef pair<int,int> pi;
@@ -21,16 +20,14 @@ int main (){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int q;
-    cin >> q;
+    int t;
+    cin >> t;
     
-    while (q--){
-        set<int> numbers;
+    while (t--){
         int n;
         cin >> n;
-        bool flag = false;
-
-        // edge case    
+    
+        // edge case  
         if (n == 1){
             int dummy;
             cin >> dummy;
@@ -38,19 +35,21 @@ int main (){
             continue;
         }
 
-        
-        // get numbers
-        rep(i,0,n-1){
+        set<int> numbers;
+        bool flag = false;
+
+        // get nums
+        for(int i=0;i<n;i++){
             int num;
             cin >> num;
-            numbers.insert(num);
-            if (numbers.count(num + 1) || numbers.count(num - 1)){
-                flag = true;
+            if(!flag){
+                numbers.insert(num);
+                if (numbers.count(num + 1) || numbers.count(num - 1)){
+                    flag = true;
+                }
             }
         }
 
-        
-        
         cout << (flag ? 2 : 1) << endl;
         
     }

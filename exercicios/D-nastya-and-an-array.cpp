@@ -19,7 +19,32 @@ int main (){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
+    int n;
+    cin >> n;
 
+    unordered_set<int> nums ;
+
+    // edge case
+    if (n == 1){
+        int x;
+        cin >> x;
+        if(x == 0){
+            cout << 0;
+        } else {
+            cout << 1;
+        }
+        return 0;
+    }
+
+    while(n--){
+        int x;
+        cin >> x;
+        if (x != 0){
+            nums.insert(x);
+        }
+    }
+
+    cout << size(nums) << endl;
 
 
     return 0;
