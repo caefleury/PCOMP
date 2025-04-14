@@ -53,3 +53,19 @@ int main (){
 
     return 0;
 }
+
+// Para essa questão, a chave é entender que a posição de cada bloco não importa.
+
+// Se pegarmos, por exemplo, o terceiro bloco do primeiro teste e movermos ele uma 
+// unidade para a esquerda, o perimetro do lado x, visto de baixo, se mantem. Ele "perde"
+// uma uniadade de perimetro mas ganha ao expor uma unidade de perimetro do quarto bloco.
+
+// Isso é verdade para qualquer movimentação.
+
+// Diante disso, basta pegarmos a distancia em x do inicio do primeiro bloco até o fim 
+// do quarto bloco e teremos a distancia desse lado (x visto de baixo).
+
+// Supondo que a distancia se mantem para todos os lados, basta multiplicar esse valor por dois
+// e teremos a distancia para todo o eixo x.
+
+// Fazer o mesmo para o eixo y e a soma será o perimetro total.
