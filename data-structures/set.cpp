@@ -1,6 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Set
+// Pros:
+// - O(log n) insertion, deletion, and lookup
+// - Automatically maintains elements in sorted order
+// - Guarantees uniqueness of elements
+// Cons:
+// - Slower than unordered_set for simple lookups
+// - No direct access to elements by index
+// - Cannot modify elements in-place (must remove and reinsert)
+// Use cases:
+// - Removing duplicates from a collection
+// - Checking for element existence efficiently
+// - Maintaining a sorted collection of unique items
+// - Set operations (union, intersection, difference)
+
 int main() {
     // Declaração de um set de inteiros
     set<int> s;
