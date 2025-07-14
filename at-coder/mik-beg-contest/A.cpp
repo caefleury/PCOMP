@@ -19,7 +19,21 @@ int main (){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
+    int N,L,R,x,y;
 
+    cin >> N >> L >> R;
+    int counter = 0;
+
+    while (N--){
+        cin >> x >> y;
+
+        if (x<=L && y >= R){
+            counter++;
+        }
+
+    }
+
+    cout << counter << endl;
 
 
     return 0;
