@@ -82,5 +82,52 @@ int main() {
     v.clear();
     cout << "Tamanho após clear: " << v.size() << endl; // 0
     
+    
+    // --- Algoritmos e Métodos Comuns ---
+
+    // 1. Ordenação (std::sort)
+    cout << "\n--- Exemplo: Ordenação ---" << endl;
+    vector<int> v_sort = {40, 10, 50, 20, 30};
+    sort(v_sort.begin(), v_sort.end()); // Ordena em ordem crescente
+    cout << "Vetor ordenado (crescente): ";
+    for (int x : v_sort) cout << x << " ";
+    cout << endl; // 10 20 30 40 50
+
+    sort(v_sort.begin(), v_sort.end(), greater<int>()); // Ordena em ordem decrescente
+    cout << "Vetor ordenado (decrescente): ";
+    for (int x : v_sort) cout << x << " ";
+    cout << endl; // 50 40 30 20 10
+
+    // 2. Busca
+    cout << "\n--- Exemplo: Busca ---" << endl;
+    // Busca Linear (std::find)
+    auto it_find = find(v_sort.begin(), v_sort.end(), 30); // v_sort é {50, 40, 30, 20, 10}
+    if (it_find != v_sort.end()) {
+        cout << "Elemento 30 encontrado via find." << endl;
+    }
+
+    // Busca Binária (requer vetor ordenado)
+    sort(v_sort.begin(), v_sort.end()); // Reordena para {10, 20, 30, 40, 50}
+    cout << "Vetor reordenado para busca binária: ";
+    for (int x : v_sort) cout << x << " ";
+    cout << endl;
+
+    bool found = binary_search(v_sort.begin(), v_sort.end(), 40);
+    cout << "Elemento 40 encontrado via binary_search? " << (found ? "Sim" : "Não") << endl;
+
+    // lower_bound/upper_bound em vetor ordenado
+    auto it_lower = lower_bound(v_sort.begin(), v_sort.end(), 25);
+    cout << "lower_bound(25) em vetor: " << *it_lower << endl; // 30
+
+    // 3. Acesso rápido e inserção eficiente
+    cout << "\n--- Exemplo: Acesso e Inserção Eficiente ---" << endl;
+    cout << "Primeiro elemento (front): " << v_sort.front() << endl; // 10
+    cout << "Último elemento (back): " << v_sort.back() << endl;   // 50
+
+    v_sort.emplace_back(60); // Adiciona 60 no final de forma eficiente
+    cout << "Vetor após emplace_back(60): ";
+    for (int x : v_sort) cout << x << " ";
+    cout << endl; // 10 20 30 40 50 60
+    
     return 0;
 }

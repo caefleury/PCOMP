@@ -51,5 +51,55 @@ int main() {
     }
     cout << endl; // 10 30
     
+    
+    // --- Métodos Avançados ---
+    s.insert(5);  // {5, 10, 30}
+    s.insert(40);
+
+    // 1. find(): Retorna um iterador para o elemento ou s.end() se não encontrado
+    cout << "\n--- Exemplo com find() ---" << endl;
+    auto it_find = s.find(10);
+    if (it_find != s.end()) {
+        cout << "Elemento 10 encontrado: " << *it_find << endl;
+    }
+
+    // 2. lower_bound() e upper_bound()
+    cout << "\n--- Exemplo com lower/upper_bound ---" << endl;
+    // lower_bound(x): primeiro elemento >= x
+    // upper_bound(x): primeiro elemento > x
+    cout << "Set atual: { ";
+    for(int x : s) cout << x << " ";
+    cout << "}" << endl; // { 5 10 30 40 }
+
+    auto it_lower = s.lower_bound(15);
+    cout << "lower_bound(15): " << *it_lower << endl; // 30
+
+    auto it_upper = s.upper_bound(30);
+    cout << "upper_bound(30): " << *it_upper << endl; // 40
+
+    // 3. Set com ordem customizada (decrescente)
+    cout << "\n--- Exemplo com comparador customizado ---" << endl;
+    set<int, greater<int>> s_desc;
+    s_desc.insert(10);
+    s_desc.insert(30);
+    s_desc.insert(20);
+    cout << "Set em ordem decrescente: ";
+    for (int x : s_desc) {
+        cout << x << " ";
+    }
+    cout << endl; // 30 20 10
+
+    // 4. Multiset: um set que permite elementos duplicados
+    cout << "\n--- Exemplo com multiset ---" << endl;
+    multiset<int> ms;
+    ms.insert(10);
+    ms.insert(20);
+    ms.insert(10);
+    ms.insert(10);
+    cout << "Contagem de 10 no multiset: " << ms.count(10) << endl; // 3
+    cout << "Elementos do multiset: ";
+    for(int x : ms) cout << x << " ";
+    cout << endl; // 10 10 10 20
+
     return 0;
 }
